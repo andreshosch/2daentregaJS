@@ -1,5 +1,5 @@
 var suma = 0;
-var contCarro = 0;
+
 var1 = 0;
 var2 = 0;
 productos = [{
@@ -318,6 +318,7 @@ const productosDermo = document.querySelector('.dermocosmetica');
 const productosPerfumes = document.querySelector('.perfumes');
 const botonCarro = document.querySelector('.btnCarro');
 const botonBorrarCarro = document.querySelector('.btnBorrarCarro');
+const carro = document.querySelector('.contadorProductos');
 
 function mostrarProductos() {
     for (const items of productos) {
@@ -340,10 +341,6 @@ function mostrarProductos() {
         btnAgregarCarrito.textContent = "Agregar al Carrito";
         btnAgregarCarrito.onclick = () => {
             agregarCarrito(items.id);
-            contCarro = contCarro + 1;
-            document.getElementsByClassName("contador").innerHTML = contCarro;
-
-
             swal({
                 title: "Producto Agregado al Carrito",
 
@@ -385,7 +382,6 @@ function mostrarProductos() {
     }
 }
 
-
 function sumarVentas(precio) {
     suma = suma + precio;
 }
@@ -409,6 +405,7 @@ recuperarLs = () => {
 }
 recuperarLs();
 
+
 //MODAL CARRITO
 
 var modal = document.getElementById("myModal");
@@ -417,7 +414,6 @@ var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "block";
-
     mostrarCarrito();
 }
 span.onclick = function() {
@@ -429,6 +425,8 @@ window.onclick = function(event) {
     (event.target == modal) &&
     (modal.style.display = "none")
 }
+
+
 
 const divProductos = 0;
 
@@ -449,7 +447,6 @@ function mostrarCarrito() {
         botonBorrarCarro.appendChild(divProductos);
     }
 }
-
 const btnCarro = document.createElement("button");
 btnCarro.classList.add("btn-carro");
 btnCarro.textContent = "Comprar Productos";
@@ -483,5 +480,11 @@ btnBorrarCarro.textContent = "Borrar Productos";
 btnBorrarCarro.onclick = () => {
     localStorage.clear();
     location.reload();
-
 };
+const contCarro = productosCarritos.length;
+const cont = document.createElement('div');
+const carrocont = document.createElement("h6");
+carrocont.classList.add("carrocont");
+carrocont.textContent = contCarro;
+cont.append(carrocont);
+carro.appendChild(cont);
