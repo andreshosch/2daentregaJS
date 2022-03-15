@@ -872,3 +872,18 @@ body {
 
 h6 {
   font-size: 10px; }
+
+.btn-aumentar,
+.btn-disminuir {
+  background-color: lightblue;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  align-content: center; }
+
+.inputCantidad {
+  width: 20px;
+  height: 20px;
+  align-content: center;
+  pointer-events: none;
+  text-align: center; }
